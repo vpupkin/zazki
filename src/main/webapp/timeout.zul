@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?page title="Session Timeout" ?>
 <!--
-timeout.zul
-
-
+timeout.zul 
 {{IS_NOTE
-	Purpose:
-		
-	Description:
-		
+	Purpose: 
+	Description: 
 	History:
 		Wed May 31 18:11:12     2006, Created by tomyeh
-}}IS_NOTE
-
-
-Copyright (C) 2006 Potix Corporation. All Rights Reserved.
-
-
+}}IS_NOTE 
+Copyright (C) 2006 Potix Corporation. All Rights Reserved. 
 {{IS_RIGHT
 }}IS_RIGHT
 -->
