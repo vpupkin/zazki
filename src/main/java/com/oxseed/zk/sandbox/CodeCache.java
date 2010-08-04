@@ -19,7 +19,7 @@ import net.sf.jsr107cache.CacheManager;
  * Creation:  03.08.2010::18:51:20<br> 
  */
 public class CodeCache {
-	private static final String ZKCODE_NS = "zkcode";
+	private static final String ZKCODE_NS = CodeCache.class.getName();
 
 	public static Cache getCache()   { 
 		CacheManager cm = CacheManager.getInstance();

@@ -1,5 +1,4 @@
-package com.oxseed.zk.sandbox; 
-import net.sf.jsr107cache.Cache; 
+package com.oxseed.zk.sandbox;  
 import org.apache.commons.logging.LogFactory;
 import org.zkoss.zk.ui.*;
 import org.zkoss.zk.ui.ext.AfterCompose;
@@ -17,8 +16,8 @@ public class CodeView extends Textbox implements AfterCompose {
 	public void execute() {
 		Component view = getFellow("view"); 
 		Components.removeAllChildren(view);
-		Cache cache = CodeCache.getCache();//Map attributes = session.getAttributes();
-		String valueTmp = (String)cache.get(DemoWindow.ZK_DEMO_CONTENT); 
+		
+		String valueTmp = ValueVersioningManager.checkOut( DemoWindow.ZK_DEMO_CONTENT); 
 		valueTmp = valueTmp ==null? getValue():valueTmp;
 		log.debug(valueTmp);   
 		Executions.createComponentsDirectly(valueTmp, "zul", view, null);

@@ -14,11 +14,11 @@ import org.zkoss.zul.*;
 public class TryMeButton extends Button {
 	public void onClick() {
 		((Groupbox)getFellow("tryView")).setOpen(true);
-		Cache cache = CodeCache.getCache(); 
+		 
 		Component componentTmp = Path.getComponent("/demo/codeView"); 
 		Textbox tbTmp = (Textbox)componentTmp;	
 		String valueTmp = tbTmp.getValue();
-		cache.put(DemoWindow.ZK_DEMO_CONTENT, valueTmp);
+		ValueVersioningManager.checkIn( DemoWindow.ZK_DEMO_CONTENT, valueTmp);
 		((CodeView)getFellow("codeView")).execute();
 
 	}
