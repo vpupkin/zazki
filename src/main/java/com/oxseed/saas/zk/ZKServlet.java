@@ -29,17 +29,15 @@ public class ZKServlet extends org.zkoss.zk.ui.http.DHtmlLayoutServlet {
 	protected boolean process(Session session, HttpServletRequest req,
 			HttpServletResponse res, String zul, boolean arg4)
 			throws ServletException, IOException {
-			boolean retval = true;
+			boolean retval = false;
 			try{
 				retval = super.process(session, req, res, zul, arg4);
-			}catch(org.mozilla.javascript.WrappedException e){
-				retval = false;
-				e.printStackTrace();
-				ValueVersioningManager.rollback(DemoWindow.ZK_DEMO_CONTENT );
-				retval = process(session, req, res, zul, arg4);				
-			}catch(Exception e){ 
-				retval = false;
+			}catch(org.mozilla.javascript.WrappedException e){ 
+				retval = true;	
+				retval = super.process(session, req, res, "/index.zul"+"", arg4);
+			}catch(Exception e){  
 				e.printStackTrace(); 
+				ValueVersioningManager.rollback(DemoWindow.ZK_DEMO_CONTENT );
 				retval = super.process(session, req, res, zul, arg4);
 			}
 			

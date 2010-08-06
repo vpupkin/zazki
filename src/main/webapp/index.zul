@@ -3,82 +3,15 @@
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
 	xmlns:h="http://www.w3.org/1999/xhtml"
 	xmlns:zk="http://www.zkoss.org/2005/zk">
-<window title="cacheEntry list" id="cacheEntryList"   border="normal" >
-	<zscript> 
-  import java.util.ArrayList;
-  import java.text.SimpleDateFormat;
-  import java.util.UUID;   
-   import java.math.BigDecimal;  
- </zscript>
-<hbox>
-<vbox>
-	 
-		<groupbox>
-		<caption label="cache info" />
- 
- <vbox>
-<grid width="200px">
-<columns>
-  <column label="category" width="50px"/>
-  <column label="value"/>
-</columns>
-<rows>
-  <row><label id="c0" value="Hits"/><decimalbox id="v0" value="0" constraint="no empty" onChange="updateChart(0)"/></row>
-  <row><label id="c1" value="Miss"/><decimalbox id="v1" value="0" constraint="no empty" onChange="updateChart(1)"/></row>
-  <row><label id="c2" value="Size"/><decimalbox id="v2" value="0" constraint="no empty" onChange="updateChart(2)"/></row>
- </rows>
-</grid>
-<checkbox label="3D Chart" checked="true" onCheck="mychart.setThreeD(self.isChecked())"/>
-<chart id="mychart" title="Cache Info" width="250" height="250" type="pie" threeD="true" fgAlpha="128">
-<attribute name="onClick">
-  String areaid = event.getArea();
-  if (areaid != null) {
-    Area area = self.getFellow(areaid);
-    alert(""+area.getAttribute("entity")+": "+area.getTooltiptext());
-  }
-</attribute>
- 
- </chart>
- </vbox>
-		<button label="RepaintAll"  onClick="repaintAll()"  />
-		<button label="Add Cache"  onClick="addcache()" />
-		<button label="Clean Cache "  onClick="cleanCache()" />
-		<button label="Delete Cache"  onClick="deletecache()" disabled="true" />
-		<button label="Disable Cache"  onClick="disablecache()" disabled="true" />	
-		<button label="resume Cache"  onClick="resumecache()" disabled="true" />	
-		<button label="Update Cache Stat"  onClick="updatecachestat()" />	
-		
-					
-	</groupbox></vbox>
-<vbox>
-	<listbox id="box"  multiple="true" onCreate="updatecachestat()" rows="14" onSelect="updateValue()">
-		<listhead> 
-			<listheader label="key" />
-			<listheader label="hits" width="50px" />
-			<listheader label="misses" width="90px" />
-		</listhead>
-		<listitem forEach="${allEntries}" value="${each}">
-			 
-				  
-			<listcell label="${each.key}" />
-			<listcell label="${each.hits}" />
-			<listcell label="${each.misses}" />
-
-		</listitem>
-	</listbox>
-	<groupbox>
-		<caption label="Cache Item" />
-		key:
-		<textbox id="itemKey" cols="20" />
-		Value:
-		<textbox id="itemValue" cols="111" />
-		<button label="Add" width="36px" height="24px" onClick="add()" />
-		<button label="Update" width="46px" height="24px"
-			onClick="update()" />
-		<button label="Delete" width="46px" height="24px"
-			onClick="delete()" />
-	</groupbox>
-	</vbox>
-	</hbox>
-</window>
+	<window title="index.zul" id="welcome page"
+		border="normal">
+		<zscript><![CDATA[  
+			public void sayHello(){
+				alert("hello");
+			}
+		]]>
+		</zscript>
+		<button label="Say Hello!" onClick="sayHello()" />
+		<include id="secondContent" src="/hello.zul"/>
+	</window>
 </zk>
