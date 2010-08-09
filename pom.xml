@@ -3,26 +3,34 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.oxseed.saas</groupId>
-	<artifactId>cache_monitor</artifactId>
+	<groupId>com.no10x</groupId>
+	<artifactId>zazki</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0.2-SNAPSHOT</version>
 	<description>webapp for cache monitoring</description>
 	<properties>
-		<zk.version>3.6.3</zk.version>
-		 
-		
+		<zk.version>5.0.3</zk.version>
+		<zkmax.version>3.5.0</zkmax.version>
 	</properties>
 	<repositories>
 		<!--  repository>
 			<id>trg-dao-repo</id>
 			<url>http://hibernate-generic-dao.googlecode.com/svn/trunk/maven-repo/</url>
-		</repository 
+		</repository  -->
+		<!-- waron-svn id located here -->
+		<repository>
+			<id>ZKgoogle</id>
+			<name>zkossAtGoogleCode</name>
+			<url>
+				http://zkoss.googlecode.com/svn/release-repository/
+			</url>
+			<layout>default</layout>
+		</repository>		
 		<repository>
 			<id>zk repository</id>
 			<url>http://mavensync.zkoss.org/maven2</url>
 		</repository>
-		 -->
+		
 	</repositories>	
 	<dependencies>
 		<dependency>
@@ -76,10 +84,16 @@
 			<version>${zk.version}</version>
 		</dependency>
 
+<dependency>
+    <groupId>com.jhlabs</groupId>
+    <artifactId>filters</artifactId>
+    <version>zk5.0.3</version>
+</dependency>
+		
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkex</artifactId>
-			<version>${zk.version}</version>
+			<version>${zkmax.version}</version>
 			<exclusions>
 
 				<exclusion>
@@ -101,10 +115,12 @@
 			</exclusions>
 
 		</dependency>
+<!-- 
+		
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
-			<version>${zk.version}</version>
+			<version>${zkmax.version}</version>
 			<exclusions>
 
 				<exclusion>
@@ -126,6 +142,9 @@
 			</exclusions>
 
 		</dependency>
+		 -->
+		
+		
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
