@@ -12,6 +12,6 @@
 		]]>
 		</zscript>
 		<button label="Say Hello!" onClick="sayHello()" />
-		<include id="secondContent" src="/hello.zul"/>
+		<!-- include id="secondContent" src="/hello.zul"/ -->
 	</window>
 </zk>
