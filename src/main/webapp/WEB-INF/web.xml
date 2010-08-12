@@ -1,40 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- web.xml
-	Purpose:
-		
-	Description:
-		
-	History:
-		Wed Dec 29 12:13:00     2004, Created by tomyeh
-
-Copyright (C) 2004 Potix Corporation. All Rights Reserved.
--->
-
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"> 
-
 	<description><![CDATA[ZK Demo]]></description>
 	<display-name>zkdemo</display-name>
-	<!--
-	<icon>
-		<small-icon></small-icon>
-		<large-icon></large-icon>
-	</icon>
-	-->
-	<!-- Spring ApplicationContext -->
-	<!-- 
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-config.xml</param-value>
-	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	 -->
-	<!-- //// -->
-	<!-- ZK -->
+ <!-- ZK -->
 	<listener>
 		<description>Used to cleanup when a session is destroyed</description>
 		<display-name>ZK Session Cleaner</display-name>
@@ -54,24 +24,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 			<param-name>update-uri</param-name>
 			<param-value>/zkau</param-value>
 		</init-param>
-		<!-- Optional. Specifies whether to compress the output
-		of the ZK loader. It speeds up the transmission over slow Internet.
-		However, if you configure a filter to post-processing the
-		output, you might have to disable it.
-
-		Default: true
-		<init-param>
-			<param-name>compress</param-name>
-			<param-value>true</param-value>
-		</init-param>
-		-->
-		<!-- Optional. Specifies the default log level: OFF, ERROR, WARNING,
-			INFO, DEBUG and FINER. If not specified, the system default is used.
-		<init-param>
-			<param-name>log-level</param-name>
-			<param-value>OFF</param-value>
-		</init-param>
-		-->
 		<load-on-startup>1</load-on-startup><!-- Must -->
 	</servlet>
 	<servlet-mapping>
@@ -124,24 +76,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 	</filter-mapping>
 	-->
 
-	<!-- ///////////// -->
-	<!-- DSP (optional) -->
-	<!-- Uncomment if you want to use Potix DSP in your Website
-	<servlet>
-		<servlet-name>dspLoader</servlet-name>
-		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class>
-		<init-param>
-			<param-name>class-resource</param-name>
-			<param-value>true</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dspLoader</servlet-name>
-		<url-pattern>*.dsp</url-pattern>
-	</servlet-mapping>
-	-->
-
-	<!-- /////////// -->
 	<!-- Miscellaneous -->
 	<session-config>
 		<session-timeout>120</session-timeout>
