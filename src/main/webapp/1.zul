@@ -1,0 +1,74 @@
+<window  id="win" title="My First Window" border="normal" width="600px" 
+	sizable="true">
+	<vbox id="gbH22" width="100%">
+		<zscript>
+	Map myMap = new java.util.HashMap();
+	String a = "";
+	myMap.put("win", "a");
+	myMap.put("alert('a')", "b");
+	myMap.put("printf()", "c");
+	//myMap .addAll (com.oxseed.zk.sandbox.CodeCache.getCache());
+	ListModel codesTmp = new org.zkoss.zkplus.databind.BindingListModelMap(
+			myMap, true);
+</zscript>
+
+		<vbox id="gb0" width="100%">
+
+			<hbox id="gbH2" width="100%">
+				<vbox id="gb11" width="100%">
+					<listbox id="list" width="100%"
+						model="&#36;{codesTmp}"
+						onClick="codeView.value=  a+self.selectedItem.label;  ">
+						<listhead>
+							<listheader label="Load on Demend"
+								sort="auto" />
+						</listhead>
+					</listbox>
+					<splitter id="s12" collapse="before" width="100%" />
+
+
+				</vbox>
+
+				<splitter id="s2" collapse="before" width="100%" />
+
+				<vbox id="gb2" width="100%">
+					<textbox id="codeView" rows="10" width="100%">
+						<attribute name="value">
+
+
+
+
+							
+							<![CDATA[ <window title="My First Window"
+							border="normal" width="200px"> don't edit
+							this part. the value will be replaced by
+							application starting. </window> ]]>
+							
+							
+						 
+		 					
+						</attribute>
+					</textbox>
+					<splitter id="s3" collapse="before" />
+					Column 1-2: You can enforce to open or collapse
+					programming by calling setOpen method.
+				</vbox>
+			</hbox>
+
+		</vbox>
+
+
+		<hbox>
+			<button label="Overlap"
+				onClick="win.setSizable(true);win.doOverlapped();" />
+			<button label="Popup"
+				onClick="win.setSizable(true);win.doPopup();" />
+			<button label="Embed"
+				onClick="win.setSizable(false);win.doEmbedded();" />
+			<button label="Redraw"
+				onClick="win.invalidate(); gbH22.invalidate(); " />
+ 
+			Hello, World!
+		</hbox>
+	</vbox>
+</window>

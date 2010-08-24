@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:zk="http://www.zkoss.org/2005/zk">
+	<window id="demo" use="com.oxseed.zk.sandbox.DemoWindow">
+		<groupbox mold="3d" width="100%">
+			<caption label="View" >
+				<button label="Reload" height="18px"
+					use="com.oxseed.zk.sandbox.ReloadButton" />
+			</caption>
+			<window id="view"></window>
+		</groupbox>
+		<groupbox id="tryView" mold="3d" open="false" width="100%">
+			<caption label="Source">
+				<button label="Try me!"
+					use="com.oxseed.zk.sandbox.TryMeButton" />
+			</caption>
+			<textbox id="codeView" class="code" rows="10" width="100%"
+				use="com.oxseed.zk.sandbox.CodeView">
+				<attribute name="value"><![CDATA[
+<window title="My First Window" border="normal" width="200px">
+don't edit this part. the value will be replaced by application starting. 
+</window>
+			]]></attribute>
+			</textbox>
+		</groupbox>
+	</window>
+</zk>

@@ -1,0 +1,7 @@
+<window id="win" border="normal" width="600px">
+ <textbox id="textTmp" value = "1+43"/>
+<zscript language="javascript">
+var oTmp = eval ( "eval("+ textTmp.value +")" );
+</zscript>
+    -------  ${oTmp} ---------- 
+</window>
