@@ -1,0 +1,36 @@
+<window id="win" border="normal" width="600px" xmlns:w="http://www.zkoss.org/2005/zk/client"> 
+<caption label="Source">
+<zscript>
+ var comboTMP ;
+</zscript>
+
+	<hbox>
+		here is win-title
+		<button label="Overlap"
+			onClick="win.setSizable(true);win.doOverlapped();" />
+		<button label="Popup"
+			onClick="win.setSizable(true);win.doPopup();" />
+		<button label="Embed"
+			onClick="win.setSizable(false);win.doEmbedded();" />
+		<button label="Redraw"
+			onClick="win.invalidate(); win.invalidate(); " />  
+	</hbox>
+</caption>
+	<vbox>
+		search:
+		<combobox id="combo" autodrop="true" mold="rounded" onCreate="comboTMP = this "
+			onChanging="refreshCombo(event.value)" />
+
+	<zscript>
+	public void refreshCombo(String toSearchStr) {
+		ws.rdd.net.UrlFetchTest test = new ws.rdd.net.UrlFetchTest();
+ 
+                String [] myList = test.googleSearch(toSearchStr);
+ 		org.zkoss.zul.ListModel dictModel = new org.zkoss.zul.SimpleListModel (myList);
+		comboTMP.setModel(dictModel);
+	}
+</zscript>
+ 
+	</vbox>
+ 
+	</window>
