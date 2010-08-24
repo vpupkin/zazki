@@ -1,0 +1,22 @@
+<window id="win" border="normal" width="600px" xmlns:w="http://www.zkoss.org/2005/zk/client">
+<textbox id="textToEval" value ="1+2"  onChanging="xXxLabel.value=event.value"/>
+<textbox id="textTmp" value ="notassigned"/> 
+      <label value="xX'x" id="xXxLabel">
+            <attribute w:name="setValue">
+            function (value) {
+                  this.$setValue(value); //call the original method
+                  if (this.desktop) {
+                        this._flag = !this._flag;
+                        this.setStyle('background:'+(this._flag ? 'red':'green'));
+                        this.$setValue( eval ( ''+value+'') ) ;
+                   }
+            }
+            </attribute>
+      </label>
+
+<zscript  id="evalJS" language="javascript">
+  var oTmp = eval ( "eval("+ textToEval.value +")" );
+  textTmp.value = oTmp;
+</zscript> 
+    -------  ${oTmp} ---------- 
+</window>

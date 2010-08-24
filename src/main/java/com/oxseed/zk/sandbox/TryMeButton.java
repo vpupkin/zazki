@@ -20,6 +20,8 @@ public class TryMeButton extends Button {
 		String valueTmp = tbTmp.getValue();
 		ValueVersioningManager.checkIn( DemoWindow.ZK_DEMO_CONTENT, valueTmp);
 		((CodeView)getFellow("codeView")).execute();
+		
+		
 
 	}
 }

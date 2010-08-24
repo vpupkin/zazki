@@ -1,0 +1,35 @@
+<window id="win" border="normal" width="600px">
+	<hbox>
+		here is win-title
+		<button label="Overlap"
+			onClick="win.setSizable(true);win.doOverlapped();" />
+		<button label="Popup"
+			onClick="win.setSizable(true);win.doPopup();" />
+		<button label="Embed"
+			onClick="win.setSizable(false);win.doEmbedded();" />
+		<button label="Redraw"
+			onClick="win.invalidate(); gbH22.invalidate(); " />
+
+		Hello, World!
+	</hbox>
+	<vbox>
+		search:
+		<combobox id="combo" autodrop="true" mold="rounded"
+			onChanging="refreshCombo(event.value)" />
+		 
+
+	</vbox>
+	<zscript>
+	void refreshCombo(String toSearchStr) {
+		ws.rdd.net.UrlFetchTest test = new ws.rdd.net.UrlFetchTest();
+ 
+                String [] myList = test.googleSearch(toSearchStr);
+ 		ListModel dictModel = new SimpleListModel(myList);
+		combo.setModel(dictModel);
+	}
+</zscript>
+	 
+		<zscript>
+	refreshCombo("help");
+</zscript>
+	</window>

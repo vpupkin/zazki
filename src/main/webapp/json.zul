@@ -1,0 +1,29 @@
+
+<window id="win" border="normal" width="600px">
+<label id="textTmp" value = ""/>
+<zscript>
+	 String xTmp = "[\"sky\", 123]";
+  textTmp.value = xTmp;
+</zscript> 
+		<zscript language="javascript">
+ 
+var oTmp = eval ( textTmp.value );
+
+</zscript>
+    -------  ${oTmp} ---------- 
+	</window>
+	
+	
+	
+	
+<window id="win" border="normal" width="600px">
+ <textbox id="textTmp" value = "1+43"/>
+<zscript language="javascript">
+var oTmp = eval ( "eval("+ textTmp.value +")" );
+</zscript>
+    -------  ${oTmp} ---------- 
+</window>
+	
+	
+			ws.rdd.net.UrlFetchTest test = new ws.rdd.net.UrlFetchTest();
+		test.googleSearchAsJSON("xxx");
