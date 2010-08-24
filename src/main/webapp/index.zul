@@ -1,16 +1,13 @@
-<window  id="win" title="My First Window" border="normal" width="600px" 
+<window id="win" title="My First Window" border="normal" width="600px"
 	sizable="true">
 	<vbox id="gbH22" width="100%">
 		<zscript>
-	Map myMap = new java.util.HashMap();
-	String a = "";
-	myMap.put("win", "a");
-	myMap.put("alert('a')", "b");
-	myMap.put("printf()", "c");
-	//myMap .addAll (com.oxseed.zk.sandbox.CodeCache.getCache());
-	ListModel codesTmp = new org.zkoss.zkplus.databind.BindingListModelMap(
-			myMap, true);
-</zscript>
+			Map myMap = new java.util.HashMap(); String a = "";
+			myMap.put("win", "a"); myMap.put("alert('a')", "b");
+			myMap.put("printf()", "c"); //myMap .addAll
+			(com.google.code.p.zazki.zk.sandbox.CodeCache.getCache()); ListModel
+			codesTmp = new org.zkoss.zkplus.databind.BindingListModelMap( myMap, true);
+		</zscript>
 
 		<vbox id="gb0" width="100%">
 
@@ -38,15 +35,15 @@
 
 
 
-							
+
 							<![CDATA[ <window title="My First Window"
 							border="normal" width="200px"> don't edit
 							this part. the value will be replaced by
 							application starting. </window> ]]>
-							
-							
-						 
-		 					
+
+
+
+
 						</attribute>
 					</textbox>
 					<splitter id="s3" collapse="before" />
@@ -67,7 +64,7 @@
 				onClick="win.setSizable(false);win.doEmbedded();" />
 			<button label="Redraw"
 				onClick="win.invalidate(); gbH22.invalidate(); " />
- 
+
 			Hello, World!
 		</hbox>
 	</vbox>

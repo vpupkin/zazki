@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	 
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.no10x</groupId>
 	<artifactId>zazki</artifactId>
@@ -19,13 +19,13 @@
 		<!--			Upload to http://0.latest.<applicationName>.appspot.com by 	default		-->
 		<gae.application.version>0</gae.application.version>
 		<!-- port defaults to 8080 -->
-		<gae.port>8888</gae.port>		
+		<gae.port>8888</gae.port>
 	</properties>
 	<repositories>
 		<!--  repository>
 			<id>trg-dao-repo</id>
 			<url>http://hibernate-generic-dao.googlecode.com/svn/trunk/maven-repo/</url>
-		</repository  -->
+			</repository  -->
 		<!-- waron-svn id located here -->
 		<repository>
 			<id>ZKgoogle</id>
@@ -34,32 +34,42 @@
 				http://zkoss.googlecode.com/svn/release-repository/
 			</url>
 			<layout>default</layout>
-		</repository>		
+		</repository>
 		<repository>
 			<id>zk repository</id>
 			<url>http://mavensync.zkoss.org/maven2</url>
 		</repository>
-		
-	</repositories>	
+
+	</repositories>
 	<dependencies>
-	<!-- gae -->
-	<dependency>   
-	<groupId>gaehttp</groupId>
-	<artifactId>gaehttp</artifactId>
-	<version>4.0.1</version>  
-</dependency>  
-		
+	
+      <dependency>
+        <groupId>com.googlecode.gwtupload</groupId>
+        <artifactId>gwtupload</artifactId>
+        <version>0.6.1</version>
+        <!-- -->
+        <scope>provided</scope>
+         
+      </dependency>
+      	
+		<!-- gae -->
+		<dependency>
+			<groupId>gaehttp</groupId>
+			<artifactId>gaehttp</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+
 
 
 		<!--
-		 		<dependency><groupId>batik</groupId><artifactId>batik-ext</artifactId>
-		<version>${batik.version}</version><optional>true</optional></dependency>
-		 
-		 -->
-  
-  
-  
-		
+			<dependency><groupId>batik</groupId><artifactId>batik-ext</artifactId>
+			<version>${batik.version}</version><optional>true</optional></dependency>
+			
+		-->
+
+
+
+
 		<!--
 			jars from GAE's "lib/user" must be added as compile-time
 			dependencies, as described here in "Copying JARs" section:
@@ -91,7 +101,7 @@
 		<dependency>
 			<groupId>com.google.appengine.orm</groupId>
 			<artifactId>datanucleus-appengine</artifactId>
-			 
+
 			<version>1.0.6.final</version>
 		</dependency>
 
@@ -142,9 +152,9 @@
 			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>
-	<!--  gae  -->
-	
-	
+		<!--  gae  -->
+
+
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-jsr107cache</artifactId>
@@ -163,8 +173,8 @@
 			<artifactId>jsr107cache</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>rhino</groupId>
 			<artifactId>js</artifactId>
@@ -180,6 +190,12 @@
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
@@ -198,13 +214,13 @@
 		</dependency>
 
 
-<!-- 
-		<dependency>
+		<!-- 
+			<dependency>
 			<groupId>org.zkoss.zkoss</groupId>
 			<artifactId>gmapsz</artifactId>
 			<version>2.0_7</version>
-		</dependency>
- -->		
+			</dependency>
+		-->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zk</artifactId>
@@ -217,68 +233,68 @@
 			<version>${zk.version}</version>
 		</dependency>
 
-<dependency>
-    <groupId>com.jhlabs</groupId>
-    <artifactId>filters</artifactId>
-    <version>zk5.0.3</version>
-</dependency>
-<!-- 
 		<dependency>
+			<groupId>com.jhlabs</groupId>
+			<artifactId>filters</artifactId>
+			<version>zk5.0.3</version>
+		</dependency>
+		<!-- 
+			<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkex</artifactId>
 			<version>${zkmax.version}</version>
 			<exclusions>
-
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zcommon</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zweb</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zk</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zul</artifactId>
-				</exclusion>
+			
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zcommon</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			</exclusion>
 			</exclusions>
-
-		</dependency>
-  -->
-<!-- 
-		
-		<dependency>
+			
+			</dependency>
+		-->
+		<!-- 
+			
+			<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
 			<version>${zkmax.version}</version>
 			<exclusions>
-
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zcommon</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zweb</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zk</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zul</artifactId>
-				</exclusion>
+			
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zcommon</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			</exclusion>
 			</exclusions>
+			
+			</dependency>
+		-->
 
-		</dependency>
-		 -->
-		
-		
+
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
@@ -389,12 +405,12 @@
 			</dependency>
 		-->
 		<!-- 		
-		<dependency>
+			<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>fckez</artifactId>
 			<version>2.6.1_1</version>
-		</dependency>
-		 -->
+			</dependency>
+		-->
 		<dependency>
 			<groupId>commons-el</groupId>
 			<artifactId>commons-el</artifactId>
@@ -448,87 +464,87 @@
 
 			</exclusions>
 		</dependency>
-<!-- 		
-		<dependency>
+		<!-- 		
+			<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>gmapsz</artifactId>
 			<version>2.0-3</version>
 			<exclusions>
-
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zcommon</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zweb</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zk</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zul</artifactId>
-				</exclusion>
+			
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zcommon</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			</exclusion>
 			</exclusions>
- 
-		</dependency>
- -->		
-<!-- 		
-		<dependency>
+			
+			</dependency>
+		-->
+		<!-- 		
+			<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>timelinez</artifactId>
 			<version>1.2_1</version>
 			<exclusions>
-
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zcommon</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zweb</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zk</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zul</artifactId>
-				</exclusion>
+			
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zcommon</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			</exclusion>
 			</exclusions>
-
-		</dependency>
- -->		
-<!-- 
-		<dependency>
+			
+			</dependency>
+		-->
+		<!-- 
+			<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>dojoz</artifactId>
 			<version>0.4.1-1</version>
-
+			
 			<exclusions>
-
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zcommon</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.common</groupId>
-					<artifactId>zweb</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zk</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.zkoss.zk</groupId>
-					<artifactId>zul</artifactId>
-				</exclusion>
+			
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zcommon</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zk</artifactId>
+			</exclusion>
+			<exclusion>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			</exclusion>
 			</exclusions>
-		</dependency>
--->		
+			</dependency>
+		-->
 	</dependencies>
 
 	<build>
@@ -538,8 +554,8 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-		
-		<!--
+
+			<!--
 				This plug-in "enhances" your domain model objects (i.e.
 				makes them persistent for datanucleus)
 			-->
@@ -595,18 +611,18 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1-alpha-2</version>
 				<configuration>
-					<webResources>
-						<resource>
-							<directory>src/main/webapp</directory>
-							<filtering>true</filtering>
-							<includes>
-								<include>**/appengine-web.xml</include>
-							</includes>
-						</resource>
-					</webResources>
+				<webResources>
+				<resource>
+				<directory>src/main/webapp</directory>
+				<filtering>true</filtering>
+				<includes>
+				<include>**/appengine-web.xml</include>
+				</includes>
+				</resource>
+				</webResources>
 				</configuration>
-			</plugin>
-			 -->
+				</plugin>
+			-->
 			<!--
 				Maven GWT plugin (ex.
 				http://gwt-maven.googlecode.com/svn/docs/maven-googlewebtoolkit2-plugin/index.html)
@@ -678,21 +694,23 @@
 				The actual maven-gae-plugin. Type "mvn gae:run" to run
 				project, "mvn gae:deploy" to upload to GAE.
 			-->
- 
-		    <plugin>
-		        <groupId>net.kindleit</groupId>
-		        <artifactId>maven-gae-plugin</artifactId>
-		        <version>0.5.9</version>
-		        <configuration>
-		            <!-- jvmFlags>
-		                <jvmFlag>-Xdebug</jvmFlag>
-		                <jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
-		            </jvmFlags>
-		             -->
-		             <jvmFlags><jvmFlag>-Dmyenviroment=local</jvmFlag></jvmFlags>
 
-		        </configuration>
-		    </plugin>
+			<plugin>
+				<groupId>net.kindleit</groupId>
+				<artifactId>maven-gae-plugin</artifactId>
+				<version>0.5.9</version>
+				<configuration>
+					<!-- jvmFlags>
+						<jvmFlag>-Xdebug</jvmFlag>
+						<jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000</jvmFlag>
+						</jvmFlags>
+					-->
+					<jvmFlags>
+						<jvmFlag>-Dmyenviroment=local</jvmFlag>
+					</jvmFlags>
+
+				</configuration>
+			</plugin>
 			<!--
 				Upload application to the appspot automatically, during
 				release:perform
@@ -718,16 +736,16 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
-				 <version>1.0</version>
+				<version>1.0</version>
 				<configuration>
 					<!-- 
 						<server>myserver</server>
 						<url>http://10.2.212.205:8080/manager</url>
 					-->
 					<server>mypc</server>
-					<url>http://localhost:9090/manager</url> 
+					<url>http://localhost:9090/manager</url>
 				</configuration>
-			</plugin>		
+			</plugin>
 			<!-- Java compiler version -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -753,7 +771,7 @@
 			</plugin>
 		</plugins>
 	</build>
-		<profiles>
+	<profiles>
 
 		<!--
 			We can configure our integration server to activate this
