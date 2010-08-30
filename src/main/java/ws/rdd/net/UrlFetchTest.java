@@ -157,7 +157,20 @@ public class UrlFetchTest {
 	}
 
 	public String[] googleSearch(String tosearchPar) throws IOException {
-		return toArray (googleSearchAsJSON( tosearchPar ));
+		final String googleSearchAsJSON = googleSearchAsJSON( tosearchPar );
+		String[] sArray = toArray (googleSearchAsJSON);
+		if (sArray.length == 0){
+			if ("".equals( tosearchPar )){
+				sArray =     new String[]{ "type something for searching..." };
+			}else if ("xxx".equals( tosearchPar )){
+				sArray =     new String[]{ "jazz", "Box", "drugs", "SexXx.." };
+			}else{
+				sArray =     new String[]{ "nothing founded for :\""+tosearchPar+"\"" };
+			}
+			
+	        
+		}
+		return sArray;
 	}
 	private String[] toArray(String strJSON) {
         String [] myList = strJSON.split(",");
@@ -170,6 +183,7 @@ public class UrlFetchTest {
 				listTmp.add(str2Add);
              }
         }
+
 		return listTmp.toArray(new String[]{});
 	}
 
@@ -192,7 +206,7 @@ public class UrlFetchTest {
 			dataTmp.append(line);
 		}
 		reader.close();
-		System.out.println(""+(""+dataTmp).length() + dataTmp);
+		//System.out.println(""+(""+dataTmp).length() + dataTmp);
 		return ""+dataTmp;
 	}
 
