@@ -1,4 +1,4 @@
-<window  id="win" title="My First Window" border="normal" width="600px" 
+<window id="win" title="My First Window" border="normal" width="600px"
 	sizable="true">
 	<vbox id="gbH22" width="100%">
 		<zscript>
@@ -38,11 +38,13 @@
 
 
 
+
 							
 							<![CDATA[ <window title="My First Window"
 							border="normal" width="200px"> don't edit
 							this part. the value will be replaced by
 							application starting. </window> ]]>
+							
 							
 							
 						 
@@ -67,7 +69,7 @@
 				onClick="win.setSizable(false);win.doEmbedded();" />
 			<button label="Redraw"
 				onClick="win.invalidate(); gbH22.invalidate(); " />
- 
+
 			Hello, World!
 		</hbox>
 	</vbox>

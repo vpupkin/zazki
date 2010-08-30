@@ -3,8 +3,7 @@
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
 	xmlns:h="http://www.w3.org/1999/xhtml"
 	xmlns:zk="http://www.zkoss.org/2005/zk">
-	<window title="index.zul" id="welcome page"
-		border="normal">
+	<window title="index.zul" id="welcome"		border="normal">
 		<zscript><![CDATA[  
 			public void sayHello(){
 				alert("hello");
