@@ -19,7 +19,8 @@ public class TryMeButton extends Button {
 		Textbox tbTmp = (Textbox)componentTmp;	
 		String valueTmp = tbTmp.getValue();
 		ValueVersioningManager.checkIn( DemoWindow.ZK_DEMO_CONTENT, valueTmp);
-		((CodeView)getFellow("codeView")).execute();
+		final CodeView fellowTmp = (CodeView)getFellow("codeView");
+		(fellowTmp).execute();
 		
 		
 
