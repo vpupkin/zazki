@@ -1,10 +1,10 @@
-<window id="win" border="normal" width="600px">
-	<caption label="Source">
+<window id="win" border="normal" width="600px" height="400px">
+	<caption label="S-)">
 		<hbox>
 			here is win-title
 			<button label="Overlap" image="/ico/m2.gif"
 				onClick="win.setSizable(true);win.doOverlapped();" />
-			<button label="Popup"  
+			<button label="Pop" disabled="true" image="/ico/m1.gif"
 				onClick="win.setSizable(true);win.doPopup();" />
 			<button label="Embed" image="/ico/embed.gif"
 				onClick="win.setSizable(false);win.doEmbedded();" />
@@ -14,28 +14,36 @@
 			Hello, World!
 		</hbox>
 	</caption>
-      <hbox>
-	<vbox>
-               <hbox>
-                  <image src="/ico/search.gif" />search:<label value="-" id="fnf"  onChange="wincontent.value = self.label  "  onClick="wincontent.value = self.value  "/>   
-               </hbox>
+	<hbox>
+		<vbox>
+			<hbox>
+				<image src="/ico/search.gif" />
+				search:
+				<label value="-" id="fnf"
+					onChange="wincontent.value = self.label  "
+					onClick="wincontent.value = self.value  " />
+			</hbox>
 
-		<combobox id="combo" autodrop="true" mold="rounded"  onSelect="fnf.value = self.selectedItem.label;"  height="11"
-			onChanging="refreshCombo(event.value)" />
-	</vbox>
-     <splitter id="s12" collapse="before" width="100%" />
-    <vbox>
-           <label value="-" id="wincontent"   />   
-    </vbox>
+			<combobox id="combo" autodrop="true" mold="rounded"
+				onSelect="fnf.value = self.selectedItem.label;" height="11"
+				onChanging="refreshCombo(event.value)" />
+		</vbox>
+		<splitter id="s12" collapse="before" width="100%" />
+		<vbox>
+			<label value="-" id="wincontent" />
+		</vbox>
 
-    </hbox>
+	</hbox>
 	<zscript>
+	ws.rdd.net.UrlFetchTest test = new ws.rdd.net.UrlFetchTest();
 	void refreshCombo(String toSearchStr) {
-		ws.rdd.net.UrlFetchTest test = new ws.rdd.net.UrlFetchTest();
 
 		String[] myList = test.googleSearch(toSearchStr);
 		ListModel dictModel = new SimpleListModel(myList);
+		combo.disableClientUpdate(true);
 		combo.setModel(dictModel);
+		combo.disableClientUpdate(false);
+
 	}
 </zscript>
 

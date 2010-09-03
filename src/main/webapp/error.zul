@@ -1,0 +1,35 @@
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:zk="http://www.zkoss.org/2005/zk">
+	<window title="ZKError" id="welcome"		border="normal" >
+		<groupbox mold="3d" width="100%"> 
+			<window id="view"></window>
+		</groupbox>
+		<zscript><![CDATA[  
+      public void sayHello(){
+				String messTmp  =   session.getAttribute("ERR_MESSAGE");
+				Object[] detailsTmp = session.getAttribute("ERR_STACK" );
+				String stackTraceString = "";
+				for (Object line:detailsTmp){
+					stackTraceString+=line+"\n";
+				}
+				stackTrace.setValue(stackTraceString);
+				stackTrace.setVisible(true);
+				alert(messTmp);
+			}
+		]]>
+		</zscript>
+		<button label="Show Error Details!" onClick="sayHello()" />
+		<button label="Reload Application!"  use="com.oxseed.zk.sandbox.GoToStartButton" />
+		<label id="stackTrace" value="" visible="false"/>
+		<textbox id="codeView" class="code" rows="10" width="100%"  visible="false">
+				<attribute name="value"><![CDATA[
+<window title="My First Window" border="normal" width="200px">
+don't edit this part. the value will be replaced by application starting. 
+</window>
+			]]></attribute>
+			</textbox>
+	</window>
+</zk>

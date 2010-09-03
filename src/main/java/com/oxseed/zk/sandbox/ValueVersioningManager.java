@@ -41,10 +41,15 @@ public class ValueVersioningManager {
 	public static void rollback(String resourceName) {
 		Cache cache = CodeCache.getCache(); 
 		Object verKey = verkey(resourceName);
-		String lastVersion = (String)cache.get( verKey ); 
-		String prevVer = ""+(Integer.parseInt(lastVersion)-2);
-		String prevVal =  (String)cache.get (resourceName + "["+ prevVer +"]"  );
-		checkIn(resourceName, prevVal);
+		try{
+			String lastVersion = (String)cache.get( verKey ); 
+			String prevVer = ""+(Integer.parseInt(lastVersion)-2);
+			String prevVal =  (String)cache.get (resourceName + "["+ prevVer +"]"  );
+			checkIn(resourceName, prevVal);
+			
+		}catch(NullPointerException e){
+		}catch(java.lang.NumberFormatException e){}
+		
 		
 	}
 

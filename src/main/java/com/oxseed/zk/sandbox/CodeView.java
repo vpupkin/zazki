@@ -11,15 +11,40 @@ public class CodeView extends Textbox implements AfterCompose {
 	private static final long serialVersionUID = 559317910798406915L;
 	private static org.apache.commons.logging.Log log = LogFactory.getLog(""+CodeView.class);
 	public void afterCompose() {
-		execute();
+		try{
+			execute();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public void execute() {
-		Component view = getFellow("view"); 
-		Components.removeAllChildren(view);
+		Component view = getFellow("winTT").getLastChild().getLastChild(); 
+		final Session session = view.getDesktop().getSession();
+		final Class<? extends CodeView> cMyClass = this.getClass();
+		final String sTrackAttrNameTmp = cMyClass.getName();
+		Object backTrack = session.getAttribute(sTrackAttrNameTmp);
+		synchronized (session) {
+			if (backTrack == null){
+				// mark this session as "busy" and go forward
+				session.setAttribute(sTrackAttrNameTmp, cMyClass);
+			}else{
+				return;
+			}
+		}
+		try{
+			Components.removeAllChildren(view);
+			
+			String valueTmp = ValueVersioningManager.checkOut( DemoWindow.ZK_DEMO_CONTENT); 
+			valueTmp = valueTmp ==null? getValue():valueTmp;
+			log.debug(valueTmp);   
+			Executions.createComponentsDirectly(valueTmp, "zul", view, null);
+			
+		}catch(Throwable e){
+			e.printStackTrace();
+		}
 		
-		String valueTmp = ValueVersioningManager.checkOut( DemoWindow.ZK_DEMO_CONTENT); 
-		valueTmp = valueTmp ==null? getValue():valueTmp;
-		log.debug(valueTmp);   
-		Executions.createComponentsDirectly(valueTmp, "zul", view, null);
+		// unmark for future!
+		session.setAttribute(sTrackAttrNameTmp, null);
+		
 	}
 }
