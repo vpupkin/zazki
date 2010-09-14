@@ -41,16 +41,22 @@
 		
 	</repositories>	
 	<dependencies>
+	<!-- tomcat -->
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>catalina</artifactId>
+		<version>6.0.29</version>
+	</dependency>
 	<!-- gae -->
-	<dependency>   
-	<groupId>gaehttp</groupId>
-	<artifactId>gaehttp</artifactId>
-	<version>4.0.1</version>  
-</dependency>  
-		
+	<dependency>
+		<groupId>gaehttp</groupId>
+		<artifactId>gaehttp</artifactId>
+		<version>4.0.1</version>
+	</dependency>
 
 
-		<!--
+
+	<!--
 		 		<dependency><groupId>batik</groupId><artifactId>batik-ext</artifactId>
 		<version>${batik.version}</version><optional>true</optional></dependency>
 		 
