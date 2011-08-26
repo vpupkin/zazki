@@ -7,7 +7,7 @@
 	myMap.put("win", "a");
 	myMap.put("alert('a')", "b");
 	myMap.put("printf()", "c");
-	//myMap .addAll (com.oxseed.zk.sandbox.CodeCache.getCache());
+	//myMap .addAll (com.google.code.p.zazki.zk.sandbox.CodeCache.getCache());
 	ListModel codesTmp = new org.zkoss.zkplus.databind.BindingListModelMap(
 			myMap, true);
 </zscript>

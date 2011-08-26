@@ -105,6 +105,22 @@ public class DumbFailoverManager implements FailoverManager {
 				public String getHeaders(boolean before) {return killedCtrl.getHeaders(before);} //if unknown, just pass null
 				public String getHeaders() {return killedCtrl.getHeaders();} //if unknown, just pass null
 				public Collection getResponseHeaders() {return killedCtrl.getResponseHeaders();}
+				@Override
+				public String getAfterHeadTags() {
+					// TODO Auto-generated method stub
+					if (1==1)throw new RuntimeException("not yet implemented since 26.08.2011");
+					else {
+					return null;
+					}
+				}
+				@Override
+				public String getBeforeHeadTags() {
+					// TODO Auto-generated method stub
+					if (1==1)throw new RuntimeException("not yet implemented since 26.08.2011");
+					else {
+					return null;
+					}
+				}
 			});
 
 		String s = killedCtrl.getRootAttributes();

@@ -22,7 +22,7 @@
 		]]>
 		</zscript>
 		<button label="Show Error Details!" onClick="sayHello()" />
-		<button label="Reload Application!"  use="com.oxseed.zk.sandbox.GoToStartButton" />
+		<button label="Reload Application!"  use="com.google.code.p.zazki.zk.sandbox.GoToStartButton" />
 		<label id="stackTrace" value="" visible="false"/>
 		<textbox id="codeView" class="code" rows="10" width="100%"  visible="false">
 				<attribute name="value"><![CDATA[
