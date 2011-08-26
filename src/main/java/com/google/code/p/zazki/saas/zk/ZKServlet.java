@@ -37,9 +37,14 @@ public class ZKServlet extends org.zkoss.zk.ui.http.DHtmlLayoutServlet {
 				retval = super.process(session, req, res, "/index.zul"+"", arg4);
 			}catch(RuntimeException e){  
 				e.printStackTrace(); 
-				ValueVersioningManager.rollback(DemoWindow.ZK_DEMO_CONTENT );
-				retval = true;	
-				retval = super.process(session, req, res, "/index.zul"+"", arg4);				
+				try{
+					ValueVersioningManager.rollback(DemoWindow.ZK_DEMO_CONTENT );
+					retval = true;	
+					retval = super.process(session, req, res, "/index.zul"+"", arg4);
+				}catch(NullPointerException e2){
+					e2.printStackTrace();
+					retval = super.process(session, req, res, "/empty.zul"+"", arg4);
+				}
 			}catch(Exception e){  
 				e.printStackTrace(); 
 				ValueVersioningManager.rollback(DemoWindow.ZK_DEMO_CONTENT );
