@@ -726,12 +726,9 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				 <version>1.0</version>
 				<configuration>
-					<!-- 
-						<server>myserver</server>
-						<url>http://10.2.212.205:8080/manager</url>
-					-->
-					<server>mypc</server>
-					<url>http://localhost:9090/manager</url> 
+					<url>${tomcat.deploy.url}</url>
+					<server>${tomcat.principal}</server>
+
 				</configuration>
 			</plugin>		
 			<!-- Java compiler version -->
@@ -749,12 +746,9 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>1.0</version>
 				<configuration>
-					<!-- 
-						<server>myserver</server>
-						<url>http://10.2.212.205:8080/manager</url>
-					-->
-					<server>mypc</server>
-					<url>http://localhost:9090/manager</url>
+					<url>${tomcat.deploy.url}</url>
+					<server>${tomcat.principal}</server>
+
 				</configuration>
 			</plugin>
 		</plugins>
