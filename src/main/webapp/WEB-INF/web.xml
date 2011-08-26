@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"> 
+ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <context-param>
+    <param-name>maxSize</param-name>
+<!--    <param-value>3145728</param-value>-->
+    <param-value>1024000</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>slowUploads</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  
 	<description><![CDATA[ZK Demo]]></description>
 	<display-name>zkdemo</display-name>
  <!-- ZK -->
@@ -10,6 +22,8 @@
 		<display-name>ZK Session Cleaner</display-name>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
+	 
+   
 	
 	
 	<servlet>
@@ -24,7 +38,7 @@
 		<servlet-name>zkLoader</servlet-name>
 		<!-- 		<servlet-class>org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
 		  -->
-		<servlet-class>com.oxseed.saas.zk.ZKServlet</servlet-class>
+		<servlet-class>com.google.code.p.zazki.saas.zk.ZKServlet</servlet-class>
 		 
 		<!-- Must. Specifies URI of the update engine (DHtmlUpdateServlet).
 		It must be the same as <url-pattern> for the update engine.
@@ -246,15 +260,7 @@
 		<mime-type>text/html</mime-type>
 	</mime-mapping>
 	
-	
-	 <error-page>
-        <error-code>500</error-code>
-        <location>/errors/servererror.jsp</location>
-    </error-page> 
-	 <error-page>
-        <error-code>403</error-code>
-        <location>/errors/usererror.jsp</location>
-    </error-page> 
+	 
 
 	<welcome-file-list>
 		<welcome-file>index.zul</welcome-file>
